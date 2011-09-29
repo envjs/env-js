@@ -212,7 +212,8 @@ XMLHttpRequest.prototype = {
     readyState: 0,
     responseText: "",
     status: 0,
-    statusText: ""
+    statusText: "",
+    withCredentials: false
 };
 
 }(/*XMLHttpREquest*/));
