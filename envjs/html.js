@@ -942,7 +942,7 @@ var  __reset__ = function(element){
 
 //LABEL, INPUT, SELECT, TEXTAREA, and BUTTON
 var __focus__ = function(element){
-    if (element.ownerDocument.activeElement){
+    if (element.ownerDocument){
       element.ownerDocument.activeElement = element;
     }
     var event = new Event('HTMLEvents');
