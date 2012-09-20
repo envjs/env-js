@@ -942,6 +942,9 @@ var  __reset__ = function(element){
 
 //LABEL, INPUT, SELECT, TEXTAREA, and BUTTON
 var __focus__ = function(element){
+    if (element.ownerDocument){
+      element.ownerDocument.activeElement = element;
+    }
     var event = new Event('HTMLEvents');
     event.initEvent("focus", false, false);
     element.dispatchEvent(event);
@@ -950,6 +953,9 @@ var __focus__ = function(element){
 
 //LABEL, INPUT, SELECT, TEXTAREA, and BUTTON
 var __blur__ = function(element){
+    if (element === element.ownerDocument.activeElement){
+      element.ownerDocument.activeElement = null;
+    }
     var event = new Event('HTMLEvents');
     event.initEvent("blur", false, false);
     element.dispatchEvent(event);
