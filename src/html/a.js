@@ -60,6 +60,15 @@ __extend__(HTMLAnchorElement.prototype, {
     set name(val) {
         this.setAttribute("name",val);
     },
+    get pathname() {
+        var uri = Envjs.urlsplit(this.href);
+        return uri.path;
+    },
+    set pathname(val) {
+        var uri = Envjs.urlsplit(this.href);
+        uri.path = val
+        this.href(uri.urlunsplit(uri));
+    },
     get rel() {
         return this.getAttribute("rel")||'';
     },
